@@ -1,0 +1,25 @@
+image: node:lts
+
+stages:
+  - test
+  - deploy_dev
+
+cache:
+  paths:
+    - node_modules/
+
+test:
+  stage: test
+  script:
+    - yarn
+    - yarn build
+    - yarn test
+
+deploy_dev:
+  stage: deploy_dev
+  only:
+    - dev
+  script:
+    - yarn
+    - yarn build
+
