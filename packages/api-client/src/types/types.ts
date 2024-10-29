@@ -271,7 +271,9 @@ export type Product = {
   hasDiscountedPrice: number;
   listPrice: number;
   realProduct?: ProductVariant;
-  firstVariant: number;
+  firstVariant: {
+    id: number;
+  };
   currency: Currency;
   isInWishlist: boolean;
   alternativeProducts?: Product[];

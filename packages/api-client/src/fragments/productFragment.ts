@@ -1,6 +1,8 @@
 export default `
   id
-  firstVariant
+  firstVariant {
+    id
+  }
   smallImage
   price
   name

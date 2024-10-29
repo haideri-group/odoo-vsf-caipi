@@ -8,7 +8,9 @@ wishlistItems {
       image
       price
       isInWishlist
-      firstVariant
+      firstVariant {
+        id
+      }
       slug
     }
   }

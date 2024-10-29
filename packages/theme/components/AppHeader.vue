@@ -4,7 +4,7 @@
       class="sf-header--has-mobile-search"
       :class="{
         'header-on-top': isSearchOpen,
-        'sf-header--multiline': topCategories.length > 7,
+        'sf-header--multiline': topCategories.length > 3,
       }"
     >
       <!-- TODO: add mobile view buttons after SFUI team PR -->
