@@ -143,7 +143,7 @@
               <SfProperty
                 v-for="(property, i) in properties"
                 :key="i"
-                :name="property.attributeName"
+                :name="property.name"
                 :value="property.value"
                 class="product__property"
               >

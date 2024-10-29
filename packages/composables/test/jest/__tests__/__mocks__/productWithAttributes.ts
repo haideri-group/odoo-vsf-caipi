@@ -30,7 +30,6 @@ export const productWithAttributes: Product = {
       name: '36',
       displayType: 'select',
       priceExtra: 0,
-      attributeName: 'Size',
       search: '4-160'
     },
     {
@@ -38,7 +37,6 @@ export const productWithAttributes: Product = {
       name: '40',
       displayType: 'select',
       priceExtra: 0,
-      attributeName: 'Size',
       search: '4-161'
     },
     {
@@ -46,7 +44,6 @@ export const productWithAttributes: Product = {
       name: 'Cotton',
       displayType: 'radio',
       priceExtra: 0,
-      attributeName: 'Material',
       search: '5-159'
     }
   ]

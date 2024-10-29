@@ -27,7 +27,6 @@ export default `
     name
     displayType
     priceExtra
-    attributeName
     search
   }
 `;

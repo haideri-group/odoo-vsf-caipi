@@ -60,7 +60,6 @@ export type Attribute = {
   name: string;
   displayType: string;
   priceExtra?: number;
-  attributeName?: string;
   search?: string;
   values?: AttributeValueList[];
 };
