@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="custom-header-set">
     <SfHeader
       class="sf-header--has-mobile-search"
       :class="{
@@ -11,14 +11,14 @@
       <template #logo>
         <nuxt-link :to="localePath('/')" class="sf-header__logo">
           <SfImage
-            src="/icons/logo.svg"
-            alt="Vue Storefront Next"
+            src="/icons/CAIPI-Logo.svg"
+            alt="Caipi"
             class="sf-header__logo-image"
           />
         </nuxt-link>
       </template>
       <template #navigation>
-        <div class="grid grid-cols-6 auto-cols-min">
+        <div class="grid grid-cols-3 auto-cols-min">
           <SfHeaderNavigationItem
             v-for="(category, index) in topCategories"
             :key="index"
@@ -303,5 +303,14 @@ export default {
   bottom: 40%;
   left: 40%;
 }
+.custom-header-set {
+  margin: auto;
+  padding: 0 var(--spacer-sm);
+  max-width: 1242px;
+}
 </style>
+<style>
+input.sf-search-bar__input {
+  width: unset;
+}
 </style>

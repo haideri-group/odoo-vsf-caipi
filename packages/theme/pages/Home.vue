@@ -99,7 +99,7 @@
             >
             <SfImage
               class="desktop-only"
-              src="/homepage/imageAd.webp"
+              src="/homepage/CaipiInstaA.png"
               alt="katherina_trn"
               :width="470"
               :height="470"
@@ -117,7 +117,7 @@
             >
             <SfImage
               class="desktop-only"
-              src="/homepage/imageCd.webp"
+              src="/homepage/CaipiInstaB.png"
               alt="katherina_trn"
               :width="470"
               :height="160"
@@ -137,7 +137,7 @@
             >
             <SfImage
               class="desktop-only"
-              src="/homepage/imageBd.webp"
+              src="/homepage/CaipiInstaC.png"
               alt="katherina_trn"
               :width="470"
               :height="160"
@@ -155,7 +155,7 @@
             >
             <SfImage
               class="desktop-only"
-              src="/homepage/imageDd.webp"
+              src="/homepage/CaipiInstaD.png"
               alt="katherina_trn"
               :width="470"
               :height="470"
