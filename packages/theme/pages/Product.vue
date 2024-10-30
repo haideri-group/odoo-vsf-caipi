@@ -46,12 +46,6 @@
           <p class="product__description desktop-only">
             {{ description }}
           </p>
-          <SfButton
-            data-cy="product-btn_size-guide"
-            class="sf-button--text desktop-only product__guide"
-          >
-            {{ $t('Size guide') }}
-          </SfButton>
 
           <div v-if="options.select">
             <SfSelect
@@ -200,16 +194,63 @@
       <RelatedProducts
         :products="relatedProducts"
         :loading="relatedLoading"
-        title="Match it with"
+        title="We found other products you might like"
       />
     </LazyHydrate>
 
     <LazyHydrate when-visible>
-      <InstagramFeed />
+      <SfBanner
+        title="Scarves"
+        subtitle="COCKTAIL & PARTY"
+        class="custom-banner-0"
+        image="/productpage/Banner1.png"
+      />
     </LazyHydrate>
 
     <LazyHydrate when-visible>
-      <MobileStoreBanner />
+      <SfBanner
+        title="Summer shoes"
+        subtitle="Eco Sandals"
+        class="custom-banner"
+        image="/productpage/Banner2.png"
+      />
+    </LazyHydrate>
+
+    <LazyHydrate when-visible>
+      <SfCarousel
+        :settings="{ peek: 16, breakpoints: { 1023: { peek: 0, perView: 2 } } }"
+        class="carousel"
+      >
+        <SfCarouselItem
+          v-for="(product, index) in productsSlider"
+          :key="index"
+          class="carousel__item"
+        >
+          <SfProductCard
+            :image="product.image"
+            :colors="product.colors"
+            :title="product.title"
+            :regular-price="product.price.regular"
+            :special-price="product.price.special"
+            :score-rating="product.rating.score"
+            :max-rating="product.rating.max"
+            :is-in-wishlist="product.isInWishlist"
+            :show-add-to-cart-button="true"
+            :reviews-count="product.reviews"
+            :badge-label="product.badgeLabel"
+            :badge-color="product.badgeColor"
+            :image-width="216"
+            :image-height="326"
+            image-tag="nuxt-img"
+            :nuxt-img-config="{
+              format: 'webp',
+              fit: 'cover',
+            }"
+            @click:wishlist="toggleWishlist(index)"
+            @click:colors="handleSelectedColor($event, index)"
+          />
+        </SfCarouselItem>
+      </SfCarousel>
     </LazyHydrate>
   </div>
 </template>
@@ -234,7 +275,9 @@ import {
   SfButton,
   SfColor,
   SfColorPicker,
-  SfLoader
+  SfLoader,
+  SfCarousel,
+  SfProductCard
 } from '@storefront-ui/vue';
 
 import InstagramFeed from '~/components/InstagramFeed.vue';
@@ -309,9 +352,9 @@ export default {
 
     const productGallery = computed(() =>
       productGetters.getGallery(product.value).map((img) => ({
-        mobile: { url: img.small },
-        desktop: { url: img.normal },
-        big: { url: img.big },
+        mobile: { url: 'https://caipi.de' + img.small },
+        desktop: { url: 'https://caipi.de' + img.normal },
+        big: { url: 'https://caipi.de' + img.big },
         alt: product.value.name || 'alt'
       }))
     );
@@ -408,7 +451,9 @@ export default {
     RelatedProducts,
     MobileStoreBanner,
     SfColorPicker,
-    LazyHydrate
+    LazyHydrate,
+    SfCarousel,
+    SfProductCard
   },
   data() {
     return {
@@ -416,7 +461,89 @@ export default {
       detailsIsActive: false,
       brand:
         'Brand name is the perfect pairing of quality and design. This label creates major everyday vibes with its collection of modern brooches, silver and gold jewellery, or clips it back with hair accessories in geo styles.',
-      careInstructions: 'Do not wash!'
+      careInstructions: 'Do not wash!',
+      productsSlider: [
+        {
+          title: "Cream Beach Bag",
+          image: "/homepage/productA.webp",
+          price: { regular: "$ 50.00 " },
+          rating: { max: 5, score: 4 },
+          isInWishlist: true,
+          reviews: 8,
+          badgeLabel: "",
+          badgeColor: "color-primary",
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "/homepage/productA.webp",
+          price: { regular: "$ 50.00 ", special: "$ 25.00 " },
+          rating: { max: 5, score: 4 },
+          isInWishlist: true,
+          reviews: 8,
+          badgeLabel: "-50%",
+          badgeColor: "color-primary",
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "/homepage/productA.webp",
+          price: { regular: "$ 50.00 " },
+          rating: { max: 5, score: 4 },
+          isInWishlist: false,
+          reviews: 8,
+          badgeLabel: "",
+          badgeColor: "color-primary",
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "/homepage/productA.webp",
+          price: { regular: "$ 50.00 " },
+          rating: { max: 5, score: 4 },
+          isInWishlist: false,
+          reviews: 8,
+          badgeLabel: "",
+          badgeColor: "color-primary",
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "/homepage/productA.webp",
+          price: { regular: "$ 50.00 ", special: "$ 45.00" },
+          rating: { max: 5, score: 4 },
+          isInWishlist: false,
+          reviews: 8,
+          badgeLabel: "-10%",
+          badgeColor: "color-primary",
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "/homepage/productA.webp",
+          price: { regular: "$ 50.00 " },
+          rating: { max: 5, score: 4 },
+          isInWishlist: false,
+          reviews: 8,
+          badgeLabel: "",
+          badgeColor: "color-primary",
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "/homepage/productA.webp",
+          price: { regular: "$ 50.00 " },
+          rating: { max: 5, score: 4 },
+          isInWishlist: false,
+          reviews: 8,
+          badgeLabel: "",
+          badgeColor: "color-primary",
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "/homepage/productA.webp",
+          price: { regular: "$ 50.00 " },
+          rating: { max: 5, score: 4 },
+          isInWishlist: false,
+          reviews: 8,
+          badgeLabel: "",
+          badgeColor: "color-primary",
+        },
+      ],
     };
   }
 };
@@ -600,5 +727,14 @@ export default {
   100% {
     transform: translate3d(0, 0, 0);
   }
+}
+.custom-banner {
+  background-position: 100%;
+  margin-bottom: 50px;
+}
+.custom-banner-0 {
+  margin-bottom: 50px;
+  background-position: 0%;
+  justify-content: end;
 }
 </style>

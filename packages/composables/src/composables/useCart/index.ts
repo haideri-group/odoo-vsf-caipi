@@ -31,16 +31,15 @@ const params: UseCartFactoryParams<Cart, OrderLine, Product> = {
         ? product.realProduct.product.id
         : product.firstVariant.id;
 
-      const addItemParams: GraphQlCartAddItemParams = {
-        productId,
-        quantity
+      const addItemParams: any = {
+        products: [{ id: productId, quantity }]
       };
       const { data } = await context.$odoo.api.cartAddItem(
         addItemParams,
         customQuery
       );
-
-      return data.cartAddItem;
+      const newData = data as any;
+      return newData.cartAddMultipleItems;
     }
 
     return currentCart;

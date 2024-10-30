@@ -1,4 +1,4 @@
-const odooBaseUrl = process.env.BASE_URL;
+const odooBaseUrl = 'https://caipi.de/';
 const graphqlBaseUrl = `${odooBaseUrl}graphql/vsf`;
 
 module.exports = {
