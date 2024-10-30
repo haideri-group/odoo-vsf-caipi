@@ -27,6 +27,28 @@ Comment out the storage and devStorage object because it is giving me the follow
 
 ```sh
 I am getting the redis error so I can remove the Redis Array
+[
+  '~/helpers/cache/nuxt',
+  {
+    invalidation: {
+      endpoint: '/cache-invalidate',
+      key: '0ead60c3-d118-40be-9519-d531462ddc60',
+      handlers: ['./helpers/cache/defaultHandler']
+    },
+    driver: [
+      './helpers/cache.js',
+      {
+        isDev,
+        redis: {
+          host: process.env.REDIS_HOST,
+          port: process.env.REDIS_PORT,
+          password: process.env.REDIS_PASSWORD,
+          defaultTimeout: 86400
+        }
+      }
+    ]
+  }
+]
 ```
 
 ## ODOO Server
