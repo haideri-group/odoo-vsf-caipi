@@ -1,9 +1,0 @@
-{
-    "name": "odoo-vsf-caipi",
-    "builds": [
-      {
-        "src": "Dockerfile",
-        "use": "@vercel/docker"
-      }
-    ]
-}
