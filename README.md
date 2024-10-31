@@ -3,7 +3,7 @@
 ```sh
 1. git clone https://github.com/caipi-germany/caipi3.de.git
 2. create a new file named as .env
-3. Add below code
+3. Add below codee
 ```sh
 BASE_URL: https://caipi.de/
 NODE_ENV: production (for server)
