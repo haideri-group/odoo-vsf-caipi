@@ -1,0 +1,9 @@
+{
+    "name": "caipi3.de-new",
+    "builds": [
+      {
+        "src": "Dockerfile",
+        "use": "@vercel/docker"
+      }
+    ]
+}
