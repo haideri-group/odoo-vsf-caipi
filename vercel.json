@@ -1,5 +1,5 @@
 {
-    "name": "caipi3.de-new",
+    "name": "odoo-vsf-caipi",
     "builds": [
       {
         "src": "Dockerfile",
