@@ -2,7 +2,7 @@
 FROM node:12
 
 # Set working directory in the container
-WORKDIR /app
+WORKDIR /packages/theme
 
 # Copy project files to the container
 COPY . .
