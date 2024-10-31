@@ -1,6 +1,6 @@
 import webpack from 'webpack';
 import theme from './themeConfig';
-const isDev = process.env.NODE_ENV !== 'production';
+const isDev = false;
 
 export default {
   server: {
@@ -123,9 +123,9 @@ export default {
           {
             isDev,
             redis: {
-              host: process.env.REDIS_HOST,
-              port: process.env.REDIS_PORT,
-              password: process.env.REDIS_PASSWORD,
+              host: 'redis-16035.c279.us-central1-1.gce.redns.redis-cloud.com',
+              port: 16035,
+              password: 'mcl7Vwdvs5rlMIKUoTwf3Yq91PVZwjsp',
               defaultTimeout: 86400
             }
           }
